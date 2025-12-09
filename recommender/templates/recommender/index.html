@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Recommender</title>
+    <link rel="stylesheet" href="{% static 'recommender/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Music Recommender</h1>
+            <p>Paste a public Spotify playlist URL, describe what you're looking for, and let AI build you a new playlist.</p>
+        </header>
+
+        <form id="recommendation-form">
+            <div class="form-group">
+                <label for="playlist-url">Spotify Playlist URL</label>
+                <input type="url" id="playlist-url" name="playlist_url" placeholder="https://open.spotify.com/playlist/..." required>
+            </div>
+            <div class="form-group">
+                <label for="user-prompt">Describe your desired playlist</label>
+                <input type="text" id="user-prompt" name="user_prompt" placeholder="e.g., songs for a morning run" required>
+            </div>
+            <button type="submit" id="submit-button">Get Recommendations</button>
+        </form>
+
+        <div id="loading-spinner" class="spinner-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Curating your playlist...</p>
+        </div>
+
+        <div id="status-message"></div>
+
+        <div id="results-container"></div>
+    </div>
+
+    <script src="{% static 'recommender/main.js' %}"></script>
+</body>
+</html>
